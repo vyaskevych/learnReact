@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+</head>
+
+<body>
+
+    <h4>Теоретичні відомості</h4>
+    <ul>
+        <li>
+            Лекція.
+        </li>
+        <li><a href="https://uk.reactjs.org/docs/hooks-intro.html" target="_blank">
+                Ознайомлення з Хуками</a>&nbsp;</li>
+    </ul>
+    <h4>Додаток «Список справ»</h4>
+    <p></p>
+    <p>Необхідно переробити додаток список справ в додаток з використанням функціональних компонентів та
+        хуків.&nbsp;&nbsp;<br></p>
+    <p></p>
+    <h5>Завдання 1. Додаток «Список справ»</h5>
+    <p>В якості заготовки додатку пропонується взяти за основу приклад додатку з посилання</p>
+    <p>Створіть новий додаток, вставьте в файл app.js код з файлу&nbsp;<span><i>1-todoApp.js. </i><span
+                style="">Запустить на виконання та переконайтесь, що додаток
+                працює.</span></span>
+    </p>
+    <p><span><span style="">Додаток має суттєвий недолік, неможливо задати опис нової справи, виправте це. Додайте
+                компонент
+                <span><span style=""><b style="font-style: italic;">TextInput. </b>Налаштуйте його, щоб він працював.
+                        Текст,
+                        що введений в поле&nbsp;<b><i>TextInput </i></b>при натисканні на <b><i>Button </i></b>додається
+                        в
+                        список справ, при цьому поле <b><i>TextInput&nbsp;</i></b>очищається. Також потрібно
+                        передбачити,
+                        неможливість додавання порожньої справи.</span></span>&nbsp;</span>
+        </span>
+    </p>
+    <p><span style="color: inherit; font-family: inherit; font-size: 16px; font-weight: 700;">Завдання 2. Перша зміна
+            додатку</span><br></p>
+    <p><span class="" style="color: rgb(102, 51, 255);"><b><span class="" style="color: rgb(0, 46, 184);">Наступні кроки
+                    по
+                    суті не змінюють принцип роботи додатку, але змінюють його структуру (за прикладом
+                    лекції)</span></b>
+        </span>
+    </p>
+    <p>До виконання завдання ознайомтесь з використанням хуку стану (<a
+            href="https://uk.reactjs.org/docs/hooks-state.html"
+            target="_blank">https://uk.reactjs.org/docs/hooks-state.html</a>)</p>
+    <p>Компонент <b><i>Todo </i></b>виносимо в окремий файл в папку <b><i>components</i></b>.&nbsp;В
+        файлі&nbsp;<b><i>App.js</i></b>&nbsp;підключаємо цей компонент за допомогою імпорту.&nbsp;<span
+            style="font-size: 0.93rem;">Перевіряємо працездатність додатку.&nbsp;</span></p>
+    <p>Далі основний компонент App переписуємо з класового вигляду у функціональний.&nbsp; Імпортуємо hook useState з
+        бібліотеки React.&nbsp;<span style="font-size: 0.93rem;">Створюємо за допомогою&nbsp;useState зміну
+            (н-д:&nbsp;&nbsp;</span><i style="font-size: 0.93rem;">text</i>
+        <span style="font-size: 0.93rem;">) для збереження стану тексту з поля введення та функцію для зміни цього стану
+            (н-д: setText) .&nbsp;</span><span style="font-size: 0.93rem;">Аналогічно змінюємо state - todos та виклик
+            функції setState(). На нову функцію та зміну, що повертаються під час виклику useState.</span>
+    </p>
+    <p><span style="font-size: 0.93rem;">Перевіряємо працездатність додатку.&nbsp;<br></span></p>
+    <p></p>
+    <h5>Завдання 3. Підключення useReducer</h5>
+    <p>До виконання завдання:</p>
+    <ul>
+        <li>ознайомтесь з використанням хуку useReducer(<a
+                href="https://uk.reactjs.org/docs/hooks-reference.html#usereducer"
+                target="_blank">https://uk.reactjs.org/docs/hooks-reference.html#usereducer</a>)</li>
+        <li>збережіть робочий проект, як новий з іншим ім'ям</li>
+    </ul>
+    <p></p>
+    <p>Створіть папку reducers та в ній файл todos.js. В ньому створіть const initialState. Де для первірки задайте
+        масив
+        todos з прикладом справи, з всіма полями.</p>
+    <p>Додайте заготовку функції reducer, яка повинна приймати state та action. Не забувайте про експорт створених
+        елементів
+        (initialState, reducer). В основному файлі App імпортуйте initialState та&nbsp;reducer з&nbsp;файлу todos.js.
+        Також
+        імпортуйте&nbsp;hook
+        useReducer з бібліотеки React. Викличте useReducer з створеними&nbsp;&nbsp;initialState та&nbsp;reducer. В
+        отриманому після виклику функції&nbsp;useReducer,&nbsp; state містіться todos, який можна вивести. Запустіть
+        додаток, та переконайтеся, що дані
+        з initialState відображаються.&nbsp;</p>
+    <h5>Завдання 4. Реалізація функції reducer</h5>
+    <p>В файл todos<span><span><b>.</b>js</span></span>&nbsp;додаємо для зручності роботи const types, яка буде
+        описувати
+        типи дій для обробки даних, <i>наприклад:</i><br></p>
+    <p></p>
+    <div>
+        <pre>const&nbsp;types&nbsp;=&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;ADD:&nbsp;'ADD',<br>&nbsp;&nbsp;&nbsp;&nbsp;REMOVE:&nbsp;'REMOVE',<br>&nbsp;&nbsp;&nbsp;&nbsp;TOGGLE:&nbsp;'TOGGLE'<br>}</pre>
+    </div>
+    <p></p>
+    <p>Далі в тому ж файлі todos<span><span style=""><b
+                    style="font-style: italic;">.</b>js</span></span>&nbsp;реалізуємо
+        функцію reducer. Для цього переносимо логіку роботи з даними з файлу, що описує компонент (App.js) у функцію
+        reducer
+        файлу todos.js,&nbsp;<i>наприклад</i>:</p>
+    <p></p>
+    <div>
+        <pre>export&nbsp;function&nbsp;reducer(state,&nbsp;action)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;switch&nbsp;(action.type)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;types.ADD:&nbsp;return&nbsp;{&nbsp;...state,&nbsp;todos:&nbsp;[...state.todos,&nbsp;{&nbsp;id:&nbsp;Date.now(),&nbsp;text:&nbsp;action.payload,&nbsp;checked:&nbsp;false&nbsp;}]&nbsp;}<br>&nbsp; &nbsp; &nbsp; &nbsp; …<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</pre>
+    </div>
+    <p>Змінюємо функцію addTodo. Викликаємо в ній функцію dispatch, та передаємо їй об'єкт, що містить відповідні type
+        та
+        payload, <i>наприклад</i>:<br></p>
+    <p></p>
+    <div>
+        <pre>const&nbsp;addTodo&nbsp;=&nbsp;()&nbsp;=&gt;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;dispatch({&nbsp;type:&nbsp;'ADD',&nbsp;payload:&nbsp;text&nbsp;});<br>&nbsp; &nbsp; …<br>&nbsp;&nbsp;}</pre>
+    </div>
+    <p>Запускаємо додаток, та переконуємося, що нові справи додаються.</p>
+    <p>Аналогічно реалізуємо функції&nbsp;<span style="">removeTodo та&nbsp;<span
+                style="">toggleTodo.&nbsp;</span></span><span style="font-size: 0.93rem;">Перевіряємо працездатність
+            дода</span><span style="font-size: 0.93rem;">тку.&nbsp;</span></p>
+    <p></p>
+    <p><b><span class="" style="color: rgb(255, 51, 102);">! Опишіть&nbsp;</span></b><b>у звіті сутність reducer та код
+            функції <b>reducer</b>.&nbsp;&nbsp;</b><br></p>
+    <h5>Завдання 5. Створення actionsCreators</h5>
+    <p>В файл todos<span><span><b>.</b>js</span></span>&nbsp;створюємо об'єкт&nbsp;<span
+            style="font-size: 0.93rem;">actionsCreators. Полями об'єкти є&nbsp; функції, які повертають об'єкти з
+            відповідними&nbsp;type та payload. Це дасть можливість в основному компоненті не створювати відповідні
+            об'єкти а
+            лише викликати функції, які і будуть створювати необхідні об'єкти. <i>Приклад </i>actionsCreators:</span>
+    </p>
+    <p></p>
+    <div>
+        <pre>export&nbsp;const&nbsp;actionsCreators&nbsp;=&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;add:&nbsp;(text)&nbsp;=&gt;&nbsp;({&nbsp;type:&nbsp;types.ADD,&nbsp;payload:&nbsp;text&nbsp;}),<br>&nbsp;&nbsp;&nbsp;&nbsp;…<br>}</pre>
+    </div>В файл App.js імпортуємо&nbsp;actionsCreators. Та в dispatch передаємо виклик відповідної функції
+    з&nbsp;actionsCreators, <i>наприклад:</i>
+    <p></p>
+    <p></p>
+    <div>
+        <pre>const&nbsp;addTodo&nbsp;=&nbsp;()&nbsp;=&gt;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;dispatch(actionsCreators.add(text));<br>    …<br>&nbsp;&nbsp;}</pre>
+    </div>Так само робимо для всіх викликів dispatch.&nbsp;
+    <p></p>
+    <p><span style="font-size: 0.93rem;">Ще раз Переконайтеся, що додаток працює.</span><br></p>
+
+</body>
+
+</html>
